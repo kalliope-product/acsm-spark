@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package="github.com/kalliope-product/acsm-spark/internal/pb";
+
+// Request to create or fetching existing Spark Connect session
+message ConnectSessionRequest {
+    string session_name = 1;
+    // Additional fields can be added here, when needed
+}
+
+// Spark Connect session details
+message ConnectSession {
+    string session_id = 1;
+    string session_name = 2;
+    // Additional fields can be added here, when needed
+}
+
+message ConnectSessionListRequest {
+    int32 page_number = 1;
+    optional int32 page_size = 2;
+}
+
+message ConnectSessionListResponse {
+    repeated ConnectSession sessions = 1;
+    int32 total_sessions = 2;
+    int32 page_number = 3;
+    int32 page_size = 4;
+}
+
+// Service definition for managing Spark Connect sessions
+service ACSManager {
+    // RPC to create or fetch a Spark Connect session
+    rpc GetOrCreateSession(ConnectSessionRequest) returns (ConnectSession);
+
+    // RPC to list all Spark Connect sessions with pagination
+    rpc ListSessions(ConnectSessionListRequest) returns (ConnectSessionListResponse);
+}

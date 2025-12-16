@@ -1,0 +1,5 @@
+[ ] Support Kubenette Spawner for Driver Pod
+[ ] Support for EC2 Spawner
+    [ ] Plain old EC2 Spawner with default specifications (Driver node, executor nodes)
+    [ ] EC2 Spawner with Spot Instances
+    [ ] Auto-scaling EC2 Spawners (Have to modify ResourceManager to support auto-scaling)
