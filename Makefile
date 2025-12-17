@@ -9,4 +9,4 @@ generate_python:
     --python_out=./python/src/acsm_spark \
     --pyi_out=./python/src/acsm_spark \
     --grpc_python_out=./python/src/acsm_spark \
-    internal/manager/manager.proto
+    internal/pb/manager.proto
